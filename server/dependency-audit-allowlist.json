@@ -1,0 +1,45 @@
+{
+  "policy_note": "Allowlist for the EcoGuard server dependency audit gate (scripts/dependency-audit.js). Entries track HIGH/CRITICAL findings in the PRODUCTION tree that have NO non-major fix — i.e. they are blocked by an upstream package. Every entry MUST carry a reason and an expiry date; when an entry expires the CI gate fails until the situation is re-reviewed. Never add an entry for something `npm audit fix` (without --force) could resolve in-range. LOW/MODERATE findings are not allowlisted: they are reported as non-blocking warnings.",
+  "root_cause": "All five entries below are one cluster. sqlite3@5.1.7 (a direct production dependency) ships its install-time toolchain as regular/optional dependencies: tar@^6.1.11 (prebuilt-binary extraction via prebuild-install) and node-gyp@8.x (source-compile fallback). node-gyp pulls make-fetch-happen -> cacache -> tar@6.x. The only true leaf advisory is node-tar (12 GHSAs, marked critical); every 'high' record above it (cacache, make-fetch-happen, node-gyp, sqlite3) is npm audit bubbling the tar cluster up the chain to the direct dependency. Every patched node-tar release is 7.x, so sqlite3@5's declared tar@^6.1.11 range caps the tree at tar 6.2.1. npm reports the sole fix as sqlite3@6.0.1 (isSemVerMajor: true). These CVEs are exploitable only while npm unpacks archives during 'npm install' — the running server never invokes tar or node-gyp. Fix: upgrade sqlite3 to 6.x (major upgrade, deliberately deferred).",
+  "entries": [
+    {
+      "package": "sqlite3",
+      "until": "2027-03-01",
+      "reason": "Aggregator record: the sqlite3 driver itself has no advisory; npm flags it high because its install toolchain (node-gyp/tar, see root_cause) is unfixable below sqlite3@6.0.1 (major). Runtime DB access via the driver is unaffected by these install-time CVEs. Review for the sqlite3@6 upgrade at expiry."
+    },
+    {
+      "package": "node-gyp",
+      "until": "2027-03-01",
+      "reason": "Optional dependency of sqlite3@5.1.7; only executed when npm compiles sqlite3 from source as a fallback (never by the running service). Patched toolchain versions are only reachable via sqlite3@6 (major)."
+    },
+    {
+      "package": "make-fetch-happen",
+      "until": "2027-03-01",
+      "reason": "node-gyp dependency used to download source/headers during install. Build-time only; fixed in sqlite3@6's toolchain."
+    },
+    {
+      "package": "cacache",
+      "until": "2027-03-01",
+      "reason": "make-fetch-happen dependency; npm cache layer of the node-gyp install chain. Build-time only; its finding is the transitive tar advisory."
+    },
+    {
+      "package": "tar",
+      "until": "2027-03-01",
+      "advisories": [
+        "GHSA-34X7-HFP2-RC4V",
+        "GHSA-8QQ5-RM4J-MR97",
+        "GHSA-83G3-92JG-28CX",
+        "GHSA-QFFP-2RHF-9H96",
+        "GHSA-9PPJ-QMQM-Q256",
+        "GHSA-R6Q2-HW4H-H46W",
+        "GHSA-VMF3-W455-68VH",
+        "GHSA-W8WR-V893-VJVP",
+        "GHSA-23HP-3JRH-7FPW",
+        "GHSA-8X88-C5MF-7J5W",
+        "GHSA-GVWX-54WH-QM9J",
+        "GHSA-R292-9MHP-454M"
+      ],
+      "reason": "The single true leaf CVE cluster (node-tar: path traversal, symlink/hardlink escape, decompression DoS). Installed 6.2.1, used ONLY to unpack sqlite3 prebuilt binaries at install time (prebuild-install + node-gyp); never invoked at runtime. All patched releases are tar 7.x, blocked by sqlite3@5.1.7's tar@^6.1.11 range. New tar advisories beyond the listed 12 GHSAs will fail CI."
+    }
+  ]
+}

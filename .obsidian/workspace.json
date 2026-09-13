@@ -1,0 +1,246 @@
+{
+  "main": {
+    "id": "c03272d41f28be64",
+    "type": "split",
+    "children": [
+      {
+        "id": "5bb59736a4eb12bd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bb068749807b0fa7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "node_modules/cliui/README.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "README"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "a81ea53c2586f4ad",
+    "type": "split",
+    "children": [
+      {
+        "id": "54b58f5c5d7aa1df",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dab5861ea8c18f14",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "598bfb7999bced1a",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "883890ab6bee0da4",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      },
+      {
+        "id": "00508f5b7bc0d539",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d493f33a6071f888",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "839de188a34b32d1",
+    "type": "split",
+    "children": [
+      {
+        "id": "810d66434c3fdfb6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5836dcfadb269dc5",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "client/node_modules/d3-array/README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "d48bf02f6665608e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "client/node_modules/d3-array/README.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "ba50bf3eab56759c",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "ec6a0d4a8327a27a",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "b96253efc37bbb09",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "client/node_modules/d3-array/README.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          },
+          {
+            "id": "493b4de7b7bad49f",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "d493f33a6071f888",
+  "lastOpenFiles": [
+    "node_modules/cliui/README.md",
+    "client/test-results/theme-shots/dark-auth-_admin.png",
+    "client/test-results/theme-shots/dark-auth-_profile.png",
+    "client/test-results/theme-shots/dark-auth-_notifications.png",
+    "client/test-results/theme-shots/dark-auth-_report.png",
+    "client/test-results/theme-shots/dark-auth-_dashboard.png",
+    "client/test-results/theme-shots/dark-_map.png",
+    "client/test-results/theme-shots/dark-auth-_map.png",
+    "client/test-results/theme-shots/dark-_register.png",
+    "client/test-results/theme-shots/dark-auth-_quiz.png",
+    "client/test-results/theme-shots/dark-_login.png",
+    "client/test-results/theme-shots",
+    "client/test-results",
+    "client/dist/assets/index-C57E8mdh.js",
+    "server/test/input-validation.test.js",
+    "client/dist/index.html",
+    "client/dist/assets/index-DnCCu0BI.js",
+    "client/dist/assets/index-C64y-pK-.css",
+    "client/dist/assets",
+    "server/test/login-rate-limit.test.js",
+    "node_modules/@babel/runtime/README.md",
+    "client/node_modules/d3-array/README.md",
+    "server/node_modules/@gar/promisify/README.md",
+    "server/node_modules/@gar/promisify/LICENSE.md",
+    "EcoGuard-Master-Document.md",
+    "client/node_modules/@reduxjs/toolkit/skills/evolve-and-diagnose-redux-apps/debug-redux-toolkit-apps/SKILL.md"
+  ]
+}

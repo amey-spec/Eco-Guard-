@@ -1,0 +1,41 @@
+name: Dependency vulnerability audit
+
+# Runs npm audit against both client and server through the policy gate in
+# scripts/dependency-audit.js:
+#   - BLOCKS on high/critical findings in the production tree that are not
+#     covered by an unexpired, dated allowlist entry
+#     (see client/ and server/ dependency-audit-allowlist.json)
+#   - WARNS on dev-only, low, and moderate findings
+# The policy and the allowlist rationale are documented in the script header
+# and in server/dependency-audit-allowlist.json.
+
+# Runs the same dependency audit gate as the `security` job in ci.yml on a
+# weekly cadence, so the advisory stream is reviewed even when there are no
+# pushes/PRs. ci.yml runs it on every push and pull request.
+on:
+  # Weekly review of the advisory stream (Mondays 03:17 UTC).
+  schedule:
+    - cron: '17 3 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: npm audit policy check (client + server)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Lockfiles are intentionally git-ignored in this repo; the checker
+      # resolves the tree with `npm install --package-lock-only` in CI so the
+      # audit always runs against a complete, real dependency graph.
+      - name: Run dependency audit policy gate
+        run: npm run audit:deps

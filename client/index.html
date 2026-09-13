@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>EcoGuard — Environmental Intelligence & Safety Platform</title>
+    <meta name="title" content="EcoGuard — Environmental Intelligence & Safety Platform" />
+    <meta name="description" content="The Planet Leaves Signals. We Help You Read Them. Monitor environmental hazards, explore ecological risks, and turn awareness into action with EcoGuard." />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1a1f1b" media="(prefers-color-scheme: dark)" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="EcoGuard — Environmental Intelligence & Safety Platform" />
+    <meta property="og:description" content="The Planet Leaves Signals. We Help You Read Them. Monitor environmental hazards, explore ecological risks, and turn awareness into action." />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="EcoGuard — Environmental Intelligence & Safety Platform" />
+    <meta property="twitter:description" content="The Planet Leaves Signals. We Help You Read Them. Monitor environmental hazards, explore ecological risks, and turn awareness into action." />
+
+    <!-- Fonts: Fraunces (old-oak editorial serif) + Inter (clean UI sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script>
+      // Apply the saved (or system) theme before first paint to avoid a flash.
+      (function () {
+        try {
+          var saved = localStorage.getItem('ecoguard_theme');
+          var dark = saved === 'dark' || ((!saved || saved === 'system') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          var root = document.documentElement;
+          root.classList.toggle('dark', dark);
+          root.style.colorScheme = dark ? 'dark' : 'light';
+        } catch (e) { /* ignore */ }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
